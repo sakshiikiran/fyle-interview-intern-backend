@@ -5,11 +5,13 @@ from core.apis.assignments import student_assignments_resources, teacher_assignm
 from core.libs import helpers
 from core.libs.exceptions import FyleError
 from werkzeug.exceptions import HTTPException
+from core.principal import principal_bp
 
 from sqlalchemy.exc import IntegrityError
 
 app.register_blueprint(student_assignments_resources, url_prefix='/student')
 app.register_blueprint(teacher_assignments_resources, url_prefix='/teacher')
+app.register_blueprint(principal_bp)
 
 
 @app.route('/')
